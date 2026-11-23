@@ -1,0 +1,1771 @@
+{
+ "info": {
+  "name": "XchanGo CRUD - pruebas",
+  "description": "Pruebas automaticas del CRUD (puerto 3000). Ejecutar la coleccion completa con Run (Collection Runner): cada peticion tiene sus tests y se ven en verde o rojo. Deja la base como estaba, salvo un usuario marcado como eliminado.",
+  "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+ },
+ "variable": [
+  {
+   "key": "crud",
+   "value": "http://localhost:3000"
+  },
+  {
+   "key": "id_user",
+   "value": ""
+  },
+  {
+   "key": "id_user2",
+   "value": ""
+  },
+  {
+   "key": "id_pub",
+   "value": ""
+  },
+  {
+   "key": "id_trueque",
+   "value": ""
+  },
+  {
+   "key": "id_notif",
+   "value": ""
+  },
+  {
+   "key": "id_fav",
+   "value": ""
+  },
+  {
+   "key": "id_reporte",
+   "value": ""
+  },
+  {
+   "key": "id_doc",
+   "value": ""
+  },
+  {
+   "key": "id_alerta",
+   "value": ""
+  },
+  {
+   "key": "id_hist",
+   "value": ""
+  },
+  {
+   "key": "id_admin",
+   "value": ""
+  }
+ ],
+ "item": [
+  {
+   "name": "1 Leer colecciones",
+   "item": [
+    {
+     "name": "Listar usuarios",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 15'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(15); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/usuarios"
+     }
+    },
+    {
+     "name": "Listar publicaciones",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 14'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(14); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/publicaciones"
+     }
+    },
+    {
+     "name": "Listar trueques",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 12'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(12); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/trueques"
+     }
+    },
+    {
+     "name": "Listar notificaciones",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 5'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(5); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/notificaciones"
+     }
+    },
+    {
+     "name": "Listar favoritos",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 0'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(0); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/favoritos"
+     }
+    },
+    {
+     "name": "Listar categorias",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 8'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(8); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/categorias"
+     }
+    },
+    {
+     "name": "Listar avisos-ubicacion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 5'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(5); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/avisos-ubicacion"
+     }
+    },
+    {
+     "name": "Listar admins",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 2'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(2); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/admins"
+     }
+    },
+    {
+     "name": "Listar alertas",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 6'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(6); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/alertas"
+     }
+    },
+    {
+     "name": "Listar documentos",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 6'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(6); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/documentos"
+     }
+    },
+    {
+     "name": "Listar historial-acciones",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 8'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(8); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/historial-acciones"
+     }
+    },
+    {
+     "name": "Listar reportes",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 10'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(10); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/reportes"
+     }
+    },
+    {
+     "name": "Listar publicaciones-eliminadas",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 3'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(3); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/publicaciones-eliminadas"
+     }
+    },
+    {
+     "name": "Listar municipios",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es una lista con al menos 19'  , function () { var d = pm.response.json(); pm.expect(d).to.be.an('array'); pm.expect(d.length).to.be.at.least(19); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/municipios"
+     }
+    }
+   ]
+  },
+  {
+   "name": "2 Leer uno y errores de lectura",
+   "item": [
+    {
+     "name": "Leer usuario u1",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Es Carlos Ospina', function () { pm.expect(pm.response.json().nombre).to.eql(\"Carlos Ospina\"); });",
+         "pm.test('Viene con su municipio', function () { pm.expect(pm.response.json().ubicacion).to.eql(\"Yopal\"); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/usuarios/u1"
+     }
+    },
+    {
+     "name": "Leer un id que no existe",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 404', function () { pm.response.to.have.status(404); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/usuarios/zzz"
+     }
+    },
+    {
+     "name": "Coleccion que no existe",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 404', function () { pm.response.to.have.status(404); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/cosas"
+     }
+    },
+    {
+     "name": "La contrasena del admin esta cifrada",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Empieza con $2', function () { pm.expect(pm.response.json().password).to.match(/^\\$2/); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/admins/a1"
+     }
+    }
+   ]
+  },
+  {
+   "name": "3 Usuarios",
+   "item": [
+    {
+     "name": "Crear usuario",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_user', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Prueba CRUD\",\n  \"email\": \"prueba.crud@mail.com\",\n  \"telefono\": \"3001234567\",\n  \"ubicacion\": \"Yopal\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Crear con correo repetido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 409', function () { pm.response.to.have.status(409); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Otro\",\n  \"email\": \"PRUEBA.CRUD@mail.com\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Crear con municipio que no existe",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Otro\",\n  \"email\": \"otro@mail.com\",\n  \"ubicacion\": \"Marte\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Crear con estado invalido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Otro\",\n  \"email\": \"otro2@mail.com\",\n  \"estado\": \"inventado\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Editar usuario y cambiar municipio",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('El municipio cambio', function () { pm.expect(pm.response.json().ubicacion).to.eql(\"Aguazul\"); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios/{{id_user}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Prueba editada\",\n  \"ubicacion\": \"Aguazul\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Editar un usuario que no existe",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 404', function () { pm.response.to.have.status(404); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios/zzz",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"x\"\n}"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "4 Publicaciones",
+   "item": [
+    {
+     "name": "Crear servicio con 2 imagenes",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Guarda las 2 imagenes', function () { pm.expect(pm.response.json().imagenes.length).to.eql(2); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_pub', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/publicaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"categoriaId\": \"cat1\",\n  \"tipo\": \"servicio\",\n  \"titulo\": \"Clases de prueba\",\n  \"descripcion\": \"d\",\n  \"ofreces\": \"o\",\n  \"buscas\": \"b\",\n  \"municipio\": \"Yopal\",\n  \"cantidadDisponible\": \"3 sesiones\",\n  \"disponibilidad\": \"tardes\",\n  \"imagenes\": [\n    \"a.jpg\",\n    \"b.jpg\"\n  ]\n}"
+      }
+     }
+    },
+    {
+     "name": "Bien fisico sin barrio",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/publicaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"categoriaId\": \"cat1\",\n  \"tipo\": \"bien_fisico\",\n  \"titulo\": \"x\",\n  \"descripcion\": \"d\",\n  \"ofreces\": \"o\",\n  \"buscas\": \"b\",\n  \"municipio\": \"Yopal\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Bien digital con municipio",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/publicaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"categoriaId\": \"cat1\",\n  \"tipo\": \"bien_digital\",\n  \"titulo\": \"x\",\n  \"descripcion\": \"d\",\n  \"ofreces\": \"o\",\n  \"buscas\": \"b\",\n  \"municipio\": \"Yopal\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Categoria que no existe",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/publicaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"categoriaId\": \"cat99\",\n  \"tipo\": \"bien_digital\",\n  \"titulo\": \"x\",\n  \"descripcion\": \"d\",\n  \"ofreces\": \"o\",\n  \"buscas\": \"b\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Cambiar a bien digital",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Pierde el municipio', function () { pm.expect(pm.response.json().municipio).to.eql(null); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/publicaciones/{{id_pub}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"tipo\": \"bien_digital\",\n  \"titulo\": \"Clases online\",\n  \"imagenes\": [\n    \"c.jpg\"\n  ]\n}"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "5 Trueques",
+   "item": [
+    {
+     "name": "Crear trueque",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Nace pendiente', function () { pm.expect(pm.response.json().estado).to.eql(\"pendiente\"); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_trueque', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"solicitanteId\": \"u2\",\n  \"propietarioId\": \"{{id_user}}\",\n  \"ofrece\": \"Bicicleta\",\n  \"busca\": \"Clases\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Trueque con uno mismo",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"solicitanteId\": \"u2\",\n  \"propietarioId\": \"u2\",\n  \"ofrece\": \"a\",\n  \"busca\": \"b\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Segunda solicitud abierta a la misma publicacion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 409', function () { pm.response.to.have.status(409); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"solicitanteId\": \"u2\",\n  \"propietarioId\": \"{{id_user}}\",\n  \"ofrece\": \"a\",\n  \"busca\": \"b\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Calificar sin estar completado",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques/{{id_trueque}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"calificacionSolicitante\": 5\n}"
+      }
+     }
+    },
+    {
+     "name": "Nota fuera de 1 a 5",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques/{{id_trueque}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"estado\": \"completado\",\n  \"calificacionSolicitante\": 7\n}"
+      }
+     }
+    },
+    {
+     "name": "Completar y calificar",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Queda completado', function () { pm.expect(pm.response.json().estado).to.eql(\"completado\"); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/trueques/{{id_trueque}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"estado\": \"completado\",\n  \"fechaCierre\": \"2026-10-08\",\n  \"confirmadoSolicitante\": true,\n  \"confirmadoPropietario\": true,\n  \"calificacionSolicitante\": 5\n}"
+      }
+     }
+    }
+   ]
+  },
+  {
+   "name": "6 Notificaciones",
+   "item": [
+    {
+     "name": "Crear notificacion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_notif', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/notificaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"tipo\": \"solicitud\",\n  \"titulo\": \"Nueva solicitud\",\n  \"mensaje\": \"Prueba\",\n  \"referenciaId\": \"{{id_trueque}}\",\n  \"leida\": false\n}"
+      }
+     }
+    },
+    {
+     "name": "Tipo invalido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/notificaciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"tipo\": \"otra\",\n  \"titulo\": \"t\",\n  \"mensaje\": \"m\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Marcar como leida",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Queda leida', function () { pm.expect(pm.response.json().leida).to.eql(true); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/notificaciones/{{id_notif}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"leida\": true\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar notificacion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/notificaciones/{{id_notif}}"
+     }
+    },
+    {
+     "name": "Borrarla otra vez",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 404', function () { pm.response.to.have.status(404); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/notificaciones/{{id_notif}}"
+     }
+    }
+   ]
+  },
+  {
+   "name": "7 Favoritos",
+   "item": [
+    {
+     "name": "Crear favorito",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_fav', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/favoritos",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"u2\",\n  \"publicacionId\": \"{{id_pub}}\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Favorito repetido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 409', function () { pm.response.to.have.status(409); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/favoritos",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"u2\",\n  \"publicacionId\": \"{{id_pub}}\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar favorito",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/favoritos/{{id_fav}}"
+     }
+    }
+   ]
+  },
+  {
+   "name": "8 Reportes, documentos y alertas",
+   "item": [
+    {
+     "name": "Crear reporte",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_reporte', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/reportes",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"reportanteId\": \"u5\",\n  \"motivo\": \"Prueba\",\n  \"gravedad\": \"baja\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Reporte repetido del mismo usuario",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 409', function () { pm.response.to.have.status(409); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/reportes",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"reportanteId\": \"u5\",\n  \"motivo\": \"otra vez\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Gravedad invalida",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/reportes",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"publicacionId\": \"{{id_pub}}\",\n  \"reportanteId\": \"u6\",\n  \"motivo\": \"x\",\n  \"gravedad\": \"enorme\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Cambiar estado del reporte",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Queda aprobada', function () { pm.expect(pm.response.json().estado).to.eql(\"aprobada\"); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/reportes/{{id_reporte}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"estado\": \"aprobada\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar el reporte",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/reportes/{{id_reporte}}"
+     }
+    },
+    {
+     "name": "Crear documento",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_doc', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/documentos",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"tipoDocumento\": \"Cedula\",\n  \"numero\": \"123\",\n  \"archivo\": \"cedula.jpg\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Aprobar documento",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Queda aprobado', function () { pm.expect(pm.response.json().estado).to.eql(\"aprobado\"); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/documentos/{{id_doc}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"estado\": \"aprobado\",\n  \"revisadoPor\": \"a1\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Documento con estado invalido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/documentos/{{id_doc}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"estado\": \"quizas\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar documento",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/documentos/{{id_doc}}"
+     }
+    },
+    {
+     "name": "Crear alerta",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_alerta', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/alertas",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"tipo\": \"sistema\",\n  \"titulo\": \"Alerta de prueba\",\n  \"mensaje\": \"Prueba\",\n  \"prioridad\": \"baja\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Marcar alerta como leida",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 200', function () { pm.response.to.have.status(200); });",
+         "pm.test('Queda leida', function () { pm.expect(pm.response.json().leida).to.eql(true); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "PUT",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/alertas/{{id_alerta}}",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"leida\": true\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar alerta",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/alertas/{{id_alerta}}"
+     }
+    }
+   ]
+  },
+  {
+   "name": "9 Historial y administradores",
+   "item": [
+    {
+     "name": "Registrar accion en el historial",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_hist', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/historial-acciones",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"usuarioId\": \"{{id_user}}\",\n  \"adminId\": \"a1\",\n  \"accion\": \"Advertencia\",\n  \"descripcion\": \"Prueba\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar la accion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/historial-acciones/{{id_hist}}"
+     }
+    },
+    {
+     "name": "Crear administrador",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_admin', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/admins",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Mod Prueba\",\n  \"email\": \"modprueba@xchango.com\",\n  \"password\": \"hash\",\n  \"rol\": \"moderador\",\n  \"estado\": \"activo\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Administrador con rol invalido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 400', function () { pm.response.to.have.status(400); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/admins",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"X\",\n  \"email\": \"x@xchango.com\",\n  \"password\": \"hash\",\n  \"rol\": \"jefe\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Administrador con correo repetido",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 409', function () { pm.response.to.have.status(409); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/admins",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"X\",\n  \"email\": \"modprueba@xchango.com\",\n  \"password\": \"hash\",\n  \"rol\": \"moderador\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Borrar el administrador",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/admins/{{id_admin}}"
+     }
+    }
+   ]
+  },
+  {
+   "name": "10 Limpieza y casos especiales",
+   "item": [
+    {
+     "name": "Borrar el trueque",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/trueques/{{id_trueque}}"
+     }
+    },
+    {
+     "name": "Borrar la publicacion",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/publicaciones/{{id_pub}}"
+     }
+    },
+    {
+     "name": "Eliminar usuario (queda marcado)",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/usuarios/{{id_user}}"
+     }
+    },
+    {
+     "name": "El usuario eliminado ya no se lee",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 404', function () { pm.response.to.have.status(404); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "GET",
+      "header": [],
+      "url": "{{crud}}/usuarios/{{id_user}}"
+     }
+    },
+    {
+     "name": "El correo se puede volver a registrar",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 201', function () { pm.response.to.have.status(201); });",
+         "pm.test('Devuelve un id', function () { var d = pm.response.json(); pm.expect(d.id).to.be.a('string'); pm.collectionVariables.set('id_user2', d.id); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/usuarios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Prueba CRUD 2\",\n  \"email\": \"prueba.crud@mail.com\"\n}"
+      }
+     }
+    },
+    {
+     "name": "Eliminar ese usuario tambien",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 204', function () { pm.response.to.have.status(204); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "DELETE",
+      "header": [],
+      "url": "{{crud}}/usuarios/{{id_user2}}"
+     }
+    },
+    {
+     "name": "Municipios es solo lectura",
+     "event": [
+      {
+       "listen": "test",
+       "script": {
+        "type": "text/javascript",
+        "exec": [
+         "pm.test('Responde 405', function () { pm.response.to.have.status(405); });"
+        ]
+       }
+      }
+     ],
+     "request": {
+      "method": "POST",
+      "header": [
+       {
+        "key": "Content-Type",
+        "value": "application/json"
+       }
+      ],
+      "url": "{{crud}}/municipios",
+      "body": {
+       "mode": "raw",
+       "raw": "{\n  \"nombre\": \"Nuevo\"\n}"
+      }
+     }
+    }
+   ]
+  }
+ ]
+}
