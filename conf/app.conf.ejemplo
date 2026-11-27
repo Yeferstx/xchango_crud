@@ -9,3 +9,5 @@ bd_puerto=5432
 bd_nombre=db_xchango
 bd_usuario=postgres
 bd_clave=TU_CLAVE
+# disable en el computador, require si la base esta en Neon
+bd_ssl=disable

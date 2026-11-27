@@ -3,6 +3,8 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	"os"
+	"strconv"
 
 	_ "github.com/lib/pq"
 
@@ -12,13 +14,34 @@ import (
 	_ "xchango_crud/routers"
 )
 
+// en Render los datos vienen en variables de entorno
+// en el computador se leen de conf/app.conf
+func dato(variable string, clave string, defecto string) string {
+	valor := os.Getenv(variable)
+	if valor != "" {
+		return valor
+	}
+	return beego.AppConfig.DefaultString(clave, defecto)
+}
+
 func main() {
-	conexion := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
-		beego.AppConfig.DefaultString("bd_host", "localhost"),
-		beego.AppConfig.DefaultString("bd_puerto", "5432"),
-		beego.AppConfig.DefaultString("bd_usuario", "postgres"),
-		beego.AppConfig.DefaultString("bd_clave", ""),
-		beego.AppConfig.DefaultString("bd_nombre", "db_xchango"))
+	// Neon pide conexion segura (require), en el computador va disable
+	conexion := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s",
+		dato("BD_HOST", "bd_host", "localhost"),
+		dato("BD_PUERTO", "bd_puerto", "5432"),
+		dato("BD_USUARIO", "bd_usuario", "postgres"),
+		dato("BD_CLAVE", "bd_clave", ""),
+		dato("BD_NOMBRE", "bd_nombre", "db_xchango"),
+		dato("BD_SSL", "bd_ssl", "disable"))
+
+	// Render dice en que puerto escuchar con la variable PORT
+	puerto := os.Getenv("PORT")
+	if puerto != "" {
+		numero, err := strconv.Atoi(puerto)
+		if err == nil {
+			beego.BConfig.Listen.HTTPPort = numero
+		}
+	}
 
 	bd, err := sql.Open("postgres", conexion)
 	if err != nil {
