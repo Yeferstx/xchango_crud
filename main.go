@@ -34,6 +34,10 @@ func main() {
 		dato("BD_NOMBRE", "bd_nombre", "db_xchango"),
 		dato("BD_SSL", "bd_ssl", "disable"))
 
+	// sin esto no se puede leer el JSON que llega en POST y PUT
+	// va aqui porque en Render no esta el archivo conf/app.conf
+	beego.BConfig.CopyRequestBody = true
+
 	// Render dice en que puerto escuchar con la variable PORT
 	puerto := os.Getenv("PORT")
 	if puerto != "" {
